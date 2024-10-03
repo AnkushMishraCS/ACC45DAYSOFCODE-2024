@@ -1,0 +1,27 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int calculate_points(int X, int Y) {
+    int points_A_if_first = max(500 - X * 2, 0);
+    int points_A_if_second = max(500 - (X + Y) * 2, 0);
+
+    int points_B_if_first = max(1000 - Y * 4, 0);
+    int points_B_if_second = max(1000 - (X + Y) * 4, 0);
+
+    int score_if_A_first = points_A_if_first + points_B_if_second;
+    int score_if_B_first = points_B_if_first + points_A_if_second;
+
+    return max(score_if_A_first, score_if_B_first);
+}
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) {
+        int X, Y;
+        cin >> X >> Y;
+        cout << calculate_points(X, Y) << endl;
+    }
+    return 0;
+}
