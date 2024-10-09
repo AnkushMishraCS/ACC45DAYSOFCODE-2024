@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, X;
+    cin >> N >> X;
+    
+    int flips_to_face_down = X;
+    int flips_to_face_up = N - X;
+    
+    cout << min(flips_to_face_down, flips_to_face_up) << endl;
+    
+    return 0;
+}
